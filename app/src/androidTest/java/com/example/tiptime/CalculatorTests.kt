@@ -20,6 +20,7 @@ class CalculatorTests {
     @get:Rule()
     val activity = ActivityScenarioRule(MainActivity::class.java)
 
+    // test for the default tip options
     @Test
     fun calculate_default_tip() {
         onView(withId(R.id.cost_of_service_edit_text))
@@ -34,6 +35,7 @@ class CalculatorTests {
             .check(matches(withText(containsString("10,00"))))
     }
 
+    // test if the result is valid when choosing 18 percent tip without round up option
     @Test
     fun calculate_18_percent_tip_rounded_up() {
         onView(withId(R.id.cost_of_service_edit_text))
